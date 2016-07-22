@@ -33,7 +33,6 @@ script:
    - mkdir build && cd build &&
      cmake -DCMAKE_VERBOSE_MAKEFILE=ON -DENABLE_TESTING=ON ${COVERAGE:+-DENABLE_COVERAGE_BUILD=ON} ${SHARED_LIBS:+-DBUILD_SHARED_LIBS=${SHARED_LIBS}} .. && 
      make -j${J} && make test && make install DESTDIR=${PWD}
-   - cat CMakeFiles/*.log
 
 after_success:
   - if [[ ${COVERAGE} ]]; then codecov --gcov-exec gcov-${GVER}; fi
