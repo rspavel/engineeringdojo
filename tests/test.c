@@ -9,8 +9,15 @@ int main( int argc, const char* argv[] )
      double x=atof(argv[1]);
      double result=newtan(x);
      printf("%f\n",result);
-     return 0;
-   } else {
+   }
+   else if (argc == 0)
+   {
+	double x = atof(-4);
+	double result = newtan(x);
+     printf("%f\n",result);
+   }
+   else {
      return 1;
    }
+     return 0;
 }
