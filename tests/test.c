@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "newtan.h"
+#include "libmym.h"
+
 int main( int argc, const char* argv[] )
 {
    if(argc == 2) {
