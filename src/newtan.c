@@ -1,1 +1,7 @@
-#include "newtan.h"
+#include <math.h>
+
+double newtan(double x)
+{
+	return sin(x) / cos(x);
+}
+
