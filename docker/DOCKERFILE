@@ -7,7 +7,7 @@ ARG TRAVIS_BRANCH
 ARG TRAVIS_COMMIT
 ARG COVERAGE
 
-RUN dnf install -y -q make cmake git gcc-c++
+RUN dnf install -y -q make cmake git gcc-c++ python-pip
 
 RUN groupadd -r dojo && useradd -r -m -g dojo dojo
 USER dojo
@@ -31,6 +31,8 @@ RUN mkdir build
 WORKDIR build
 RUN cmake -DCMAKE_VERBOSE_MAKEFILE=ON \
           -DENABLE_TESTING=ON \
+	  -DCMAKE_INSTALL_PREFIX=/usr \
+	  -DLIB=lib64 \
 	  ${COVERAGE:+-DENABLE_COVERAGE_BUILD=ON} \
 	  ${SHARED_LIBS:+-DBUILD_SHARED_LIBS=${SHARED_LIBS}} \
           ..
